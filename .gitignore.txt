@@ -1,0 +1,8 @@
+backend/venv/
+backend/.env
+backend/uploads/*
+backend/lost_found.db
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

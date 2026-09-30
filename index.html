@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus Lost & Found</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <span class="eyebrow">AI Visual Matching — Live</span>
+    <h1>Campus Lost & Found</h1>
+    <p class="subtitle">Report a lost or found item — the system scans for visual matches automatically.</p>
+  </header>
+
+  <main>
+    <section class="upload-card">
+      <h2>Report an Item</h2>
+      <form id="item-form">
+        <div class="status-toggle">
+          <label>
+            <input type="radio" name="status" value="lost" checked /> Lost
+          </label>
+          <label>
+            <input type="radio" name="status" value="found" /> Found
+          </label>
+        </div>
+
+        <input type="text" id="title" placeholder="Item title (e.g. Black Wallet)" required />
+        <textarea id="description" placeholder="Description (color, brand, distinguishing marks...)"></textarea>
+
+        <div class="row">
+          <input type="text" id="category" placeholder="Category (e.g. Electronics, ID Card)" />
+          <input type="text" id="location" placeholder="Location (e.g. Library, Block C)" />
+        </div>
+
+        <input type="text" id="contact_info" placeholder="Contact info (phone/email)" />
+
+        <input type="file" id="image" accept="image/*" required />
+        <img id="preview" class="preview" style="display:none" />
+
+        <button type="submit">Submit Report</button>
+        <p id="form-status"></p>
+      </form>
+    </section>
+
+    <section class="feed">
+      <div class="feed-header">
+        <h2>Recent Reports</h2>
+        <div class="filters">
+          <button data-filter="all" class="filter-btn active">All</button>
+          <button data-filter="lost" class="filter-btn">Lost</button>
+          <button data-filter="found" class="filter-btn">Found</button>
+        </div>
+      </div>
+      <input type="text" id="search-input" placeholder="Search by title, category, or location..." class="search-box" />
+      <div id="items-grid" class="items-grid"></div>
+    </section>
+  </main>
+
+  <!-- Matches Modal -->
+  <div id="matches-modal" class="modal hidden">
+    <div class="modal-content">
+      <button id="close-modal" class="close-btn">&times;</button>
+      <h2>◎ Possible Matches</h2>
+      <div id="matches-grid" class="items-grid"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
